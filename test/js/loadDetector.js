@@ -4,7 +4,7 @@
 	once the request has finished we want to set that 'loadingLog' variable back to false to indicate no current request are happening
 */
 var loadingLog = false;
-XMLHttpRequest.prototype.reallySend = XMLHttpRequest.prototype.send;
+XMLHttpRequest.prototype.logSend = XMLHttpRequest.prototype.send;
 XMLHttpRequest.prototype.send = function(body) {
 	window.loadingLog = true;
     this.onreadystatechange = function() {
@@ -12,7 +12,7 @@ XMLHttpRequest.prototype.send = function(body) {
 	       window.loadingLog = false;
 	    }
 	};
-    this.reallySend(body);
+    this.logSend(body);
 };
 
 /*
