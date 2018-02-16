@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS Detect if anything is loading</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+	<div id="ajax_content"></div>
+	<!--loadDetector.js can handle any type of ajax...below are 2 different ajax request (in in jquery and the other in vanilla js) comment out for testing-->
+	<script>
+		setInterval(function(){ 
+			$.ajax({
+				url: "ajax_content/ajax_content.html", 
+				success: function(result){
+		        	$("#ajax_content").html(result);
+			    },
+			    error: function(){
+			    	console.error("coudn't load content into ajax_content div. Probably a 500 server error");
+			    }
+			});
+			
+
+			// var xhttp = new XMLHttpRequest();
+			// xhttp.onreadystatechange = function() {
+			//     if (this.readyState == 4 && this.status == 200) {
+			//        document.getElementById("ajax_content").innerHTML = xhttp.responseText;
+			//     }
+			// };
+			// xhttp.open("GET", "ajax_content/ajax_content.html", true);
+			// xhttp.send();
+		}, 1000);
+
+
+		setInterval(function(){ 
+			checkLoad(callback);
+		}, 1000);
+		
+	</script>
+</body>
+<script src="js/loadDetector.js"></script>
+</html>
