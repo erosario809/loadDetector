@@ -8,7 +8,7 @@ XMLHttpRequest.prototype.logSend = XMLHttpRequest.prototype.send;
 XMLHttpRequest.prototype.send = function(body) {
 	window.loadingLog = true;
     this.onreadystatechange = function() {
-	    if (this.readyState == 4 && this.status == 200) {
+	    if (this.readyState == 4) {
 	       window.loadingLog = false;
 	    }
 	};

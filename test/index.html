@@ -9,7 +9,7 @@
 	<div id="ajax_content"></div>
 	<!--loadDetector.js can handle any type of ajax...below are 2 different ajax request (in in jquery and the other in vanilla js) comment out for testing-->
 	<script>
-		setInterval(function(){ 
+		setTimeout(function(){ 
 			$.ajax({
 				url: "ajax_content/ajax_content.html", 
 				success: function(result){
@@ -32,7 +32,7 @@
 		}, 1000);
 
 
-		setInterval(function(){ 
+		setTimeout(function(){ 
 			checkLoad(callback);
 		}, 1000);
 		
